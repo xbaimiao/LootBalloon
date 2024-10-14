@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.xbaimiao.lootballoon"
-version = "1.0.5"
+version = "1.0.6"
 
 repositories {
     mavenLocal()

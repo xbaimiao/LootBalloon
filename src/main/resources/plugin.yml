@@ -1,5 +1,5 @@
 name: LootBalloon
-version: 1.0.5
+version: 1.0.6
 main: com.xbaimiao.lootballoon.LootBalloon
 authors:
   - xbaimiao
@@ -8,4 +8,4 @@ depend:
   - ItemsAdder
 api-version: "1.13"
 folia-supported: true
-update-info: "支持1.21"
+update-info: "修复音效问题"

@@ -115,7 +115,7 @@ class Balloon(
     }
 
     fun death(location: Location) {
-        mobDeathSound.parseToESound().playSound(location)
+        mobDeathSound.parseToESound().also { it.volume = 1f }.playSound(location)
         down(location)
     }
 
@@ -154,7 +154,7 @@ class Balloon(
         bukkitEntity.location.chunk.addPluginChunkTicket(plugin)
 
         val done = {
-            chestDownSound.parseToESound().playSound(location)
+            chestDownSound.parseToESound().also { it.volume = 1f }.playSound(location)
             place(bukkitEntity.location.clone())
             bukkitEntity.location.chunk.removePluginChunkTicket(plugin)
             bukkitEntity.remove()
