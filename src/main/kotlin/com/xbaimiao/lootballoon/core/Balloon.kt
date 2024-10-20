@@ -78,8 +78,15 @@ class Balloon(
                 it.resume(false)
                 return@launchCoroutine
             }
-            debug("生成成功  位置 ${player.location.clone().also { it.y += height }}")
-            summon(player.location.clone().also { it.y += height })
+            val location = player.location.clone()
+                .also { it.y = (it.y + height).coerceAtLeast(((it.world?.getHighestBlockYAt(it) ?: 50) + 10.0)) }
+            if (location.block.type.isSolid) {
+                debug("不是在天上")
+                it.resume(false)
+                return@launchCoroutine
+            }
+            debug("生成成功  位置 $location")
+            summon(location)
             async {
                 LootBalloon.inst.database.addTodayCount(player.name, this@Balloon)
             }
